@@ -1,0 +1,292 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C# Training\\Final_Project\\BankAppllication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\migrations\\20251027161240_fixtransactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\migrations\\20251027161240_fixtransactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\models\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\models\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|d:\\c# training\\final_project\\bankappllication\\bankappllication\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DAE52618-E683-4281-B92B-9C8A9B6ED690}|BankAppllication\\BankAppllication.csproj|solutionrelative:bankappllication\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20251027161240_FixTransactionModel.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Migrations\\20251027161240_FixTransactionModel.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Migrations\\20251027161240_FixTransactionModel.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Migrations\\20251027161240_FixTransactionModel.cs",
+              "RelativeToolTip": "BankAppllication\\Migrations\\20251027161240_FixTransactionModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T16:12:40.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "BankAppllication\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAUwCsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:07:36.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Program.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Program.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Program.cs",
+              "RelativeToolTip": "BankAppllication\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:07:57.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\Transaction.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Transaction.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\Transaction.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA0wBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:06:01.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\UserRole.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\UserRole.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\UserRole.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\UserRole.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:05:36.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\Role.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Role.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\Role.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:04:38.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\Account.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Account.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:01:41.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Permission.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Permission.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\Permission.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Permission.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\Permission.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:05:02.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Branch.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Branch.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\Branch.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Branch.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\Branch.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:03:25.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Bank.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Bank.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\Bank.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\Bank.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\Bank.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:02:33.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BankAppllication\\Models\\User.cs",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\Models\\User.cs",
+              "RelativeToolTip": "BankAppllication\\Models\\User.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAxwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:01:06.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\appsettings.json",
+              "RelativeDocumentMoniker": "BankAppllication\\appsettings.json",
+              "ToolTip": "D:\\C# Training\\Final_Project\\BankAppllication\\BankAppllication\\appsettings.json",
+              "RelativeToolTip": "BankAppllication\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-27T14:56:13.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:14:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:630456984:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:15:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
