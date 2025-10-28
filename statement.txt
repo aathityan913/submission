@@ -162,7 +162,6 @@ IMPLICIT REQUIREMENTS – BANK EMPLOYEE
 
 4. SECURITY
    • All endpoints secured via JWT authentication.
-   • Passwords stored using hashing and salting.
    • Role and permission checks before executing any sensitive operation.
    • Input validation and exception handling for all APIs.
 
