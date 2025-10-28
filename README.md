@@ -1,0 +1,3 @@
+- 6b6a2b7 2025-10-27 word file added
+- 6a69ccc 2025-10-27 Made README visible on repo page
+- 0803a56 2025-10-27 Created Entities and pushed

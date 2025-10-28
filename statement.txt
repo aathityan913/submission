@@ -1,0 +1,175 @@
+
+
+================================================================================
+                     SIMPLE USER AND ACCOUNT MANAGEMENT SYSTEM
+================================================================================
+
+PROBLEM STATEMENT
+------------------
+Design and develop a Banking Management REST API System that manages users, banks,
+branches, and accounts, with proper role-based access control (RBAC).
+
+The system should support two types of users — Bank Employees and Bank Customers,
+each with specific permissions and access levels.
+
+The API should provide endpoints to create, update, read, and delete users and
+accounts, while enforcing limits and permissions based on user roles.
+
+
+================================================================================
+PROJECT 1: BANK CUSTOMER DETAILS
+================================================================================
+
+PROBLEM STATEMENT
+------------------
+Design and develop a Bank Customer REST API that allows customers to securely access
+and manage their bank accounts.
+
+Customers can view balances, deposit, withdraw, and request account closures with
+certain limits.
+
+They can operate multiple accounts across multiple banks and currencies, including
+Savings, Current, and Term Deposit accounts.
+
+The system must enforce strict role-based access control and ensure all actions are
+logged and validated securely.
+
+
+EXPLICIT REQUIREMENTS – BANK CUSTOMER
+--------------------------------------
+
+1. USER MANAGEMENT
+   • Customers can register (/user/register) and log in (/login).
+   • Each user has ID, Name, Contact, Email, Password.
+   • Default role = Customer with permissions (deposit, withdraw, check balance, close account).
+   • Customers can view/update only their own profile.
+
+2. ACCOUNT MANAGEMENT
+   • Each customer can hold multiple accounts across multiple banks.
+   • Account types: Savings, Current, Term Deposit, NRI (multi-currency).
+   • Accounts can be joint, minor-operated, or POA-based.
+   • Each account stores: Account No., Type, Bank, Branch, Currency, Balance, Status.
+
+3. ALLOWED OPERATIONS
+   -----------------------------------------------------------------
+   | Operation        | Description                  | Limit       |
+   -----------------------------------------------------------------
+   | Deposit          | Add funds                     | Allowed     |
+   | Withdraw         | Withdraw money                | Limited     |
+   | Close Account    | Request closure               | Limited     |
+   | Operate Account  | Transfers, standing instr.    | Limited     |
+   | Check Balance    | View current balance          | Unlimited   |
+   -----------------------------------------------------------------
+
+4. AUTHENTICATION & AUTHORIZATION
+   • /login uses JWT authentication.
+   • Only authenticated customers can perform operations.
+   • Actions validated by roles & permissions.
+   • Tokens have limited expiry.
+
+5. TRANSACTION HANDLING
+   • Every deposit, withdrawal, or transfer logged in a Transaction table.
+   • Stores timestamp, amount, type, and reference ID.
+   • Customers can view their own transaction history.
+
+
+IMPLICIT REQUIREMENTS – BANK CUSTOMER
+---------------------------------------
+   • Database entities: User, Account, Transaction, Bank, Branch.
+   • Validation for balance, currency type, and transaction limits.
+   • Password hashing (never store plain passwords).
+   • API should respond with proper HTTP status codes.
+
+
+================================================================================
+PROJECT 2: BANK EMPLOYEE DETAILS
+================================================================================
+
+PROBLEM STATEMENT
+-----------------
+Design and develop a Bank Employee REST API to manage customer data, accounts,
+and bank operations.
+
+Employees can create and close accounts, approve transactions, and maintain branch
+and bank details.
+
+The system must implement role-based access control (Admin, Manager, Teller) and
+ensure that every employee action is securely authorized, validated, and logged
+for audit purposes.
+
+
+EXPLICIT REQUIREMENTS – BANK EMPLOYEE
+--------------------------------------
+
+1. EMPLOYEE MANAGEMENT
+   • Employees can log in using /login.
+   • Each employee has ID, Name, Role, Branch, Contact, Email, Password.
+   • Roles include Admin, Manager, and Teller.
+   • Admins can create, update, or deactivate employee records.
+   • Role determines access to customer, account, and branch operations.
+
+2. CUSTOMER MANAGEMENT
+   • Employees can view and manage all customer records.
+   • Can create new customer accounts and approve or reject closure requests.
+   • Managers and Admins can update or reset customer credentials.
+   • Permissions define access for viewing, editing, or deleting customer data.
+
+3. ACCOUNT MANAGEMENT
+   • Employees can manage Savings, Current, Term Deposit, and NRI (multi-currency) accounts.
+   • Can create, update, freeze, or close accounts.
+   • Can view balances, currencies, and transaction histories.
+   • Approve customer account closure or high-value withdrawal requests.
+
+4. BANK & BRANCH MANAGEMENT
+   • Admins can:
+        o Add or update banks and branches.
+        o Assign employees to specific branches.
+   • Each branch maintains a list of employees and customer accounts.
+
+5. AUTHENTICATION & AUTHORIZATION
+   • /login authenticates employees using JWT tokens.
+   • Role-based authorization for every operation.
+   • Sensitive operations (account closure, deletion) restricted to Managers/Admins.
+   • Tokens expire after a set period and all sessions are tracked.
+
+6. AUDIT & LOGGING
+   • Every employee action (create, update, delete, approve) is recorded in an Audit Log.
+   • Log stores timestamp, employee ID, role, operation type, and affected entity.
+   
+IMPLICIT REQUIREMENTS – BANK EMPLOYEE
+-------------------------------------
+
+1. DATABASE DESIGN
+   • Entities: Employee, Role, Permission, Bank, Branch, Customer, Account, Transaction, AuditLog.
+   • Relationships:
+        o Bank → Branch (ONE TO MANY)
+        o Branch → Employee (ONE TO MANY)
+        o Branch → Account (ONE TO MANY)
+        o Employee → AuditLog (ONE TO MANY)
+
+2. ROLE-BASED ACCESS CONTROL (RBAC)
+   • Roles define permissions:
+        o Admin → Full control (create users, manage banks/branches).
+        o Manager → Approve/review operations.
+        o Teller → Handle transactions, basic updates.
+   • Permissions table used to map actions dynamically.
+
+3. VALIDATION & BUSINESS RULES
+   • Validate customer and account data before updates.
+   • Transaction limits and account status checks before approvals.
+   • Prevent deletion of records linked to active accounts.
+   • Enforce data consistency across branches and banks.
+
+4. SECURITY
+   • All endpoints secured via JWT authentication.
+   • Passwords stored using hashing and salting.
+   • Role and permission checks before executing any sensitive operation.
+   • Input validation and exception handling for all APIs.
+
+5. LOGGING & MONITORING
+   • Each API call logs success/failure with employee ID.
+   
+
+6. SCALABILITY & MAINTAINABILITY
+   • Modular architecture (Controllers → Services → Repositories).
+   
