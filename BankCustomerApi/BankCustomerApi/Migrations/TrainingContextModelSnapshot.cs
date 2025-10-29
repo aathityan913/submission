@@ -164,6 +164,45 @@ namespace BankCustomerApi.Migrations
                     b.ToTable("Branch", "training");
                 });
 
+            modelBuilder.Entity("BankCustomerApi.Models.Permission", b =>
+                {
+                    b.Property<int>("PermissionID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PermissionID"));
+
+                    b.Property<int?>("AccountNo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PermissionName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("PermissionID");
+
+                    b.HasIndex("AccountNo");
+
+                    b.ToTable("Permission", "training");
+                });
+
             modelBuilder.Entity("BankCustomerApi.Models.Role", b =>
                 {
                     b.Property<int>("RoleID")
@@ -197,57 +236,6 @@ namespace BankCustomerApi.Migrations
                     b.HasKey("RoleID");
 
                     b.ToTable("Role", "training");
-                });
-
-            modelBuilder.Entity("BankCustomerApi.Models.Transaction", b =>
-                {
-                    b.Property<int>("TransactionID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionID"));
-
-                    b.Property<int>("AccountID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("PerformedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TransactionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TransactionType")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("TransactionID");
-
-                    b.HasIndex("AccountID");
-
-                    b.HasIndex("PerformedBy");
-
-                    b.ToTable("Transaction", "training");
                 });
 
             modelBuilder.Entity("BankCustomerApi.Models.User", b =>
@@ -343,22 +331,11 @@ namespace BankCustomerApi.Migrations
                     b.Navigation("Bank");
                 });
 
-            modelBuilder.Entity("BankCustomerApi.Models.Transaction", b =>
+            modelBuilder.Entity("BankCustomerApi.Models.Permission", b =>
                 {
-                    b.HasOne("BankCustomerApi.Models.Account", "Account")
-                        .WithMany("Transactions")
-                        .HasForeignKey("AccountID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BankCustomerApi.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("PerformedBy")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Account");
-
-                    b.Navigation("User");
+                    b.HasOne("BankCustomerApi.Models.Account", null)
+                        .WithMany("Permissions")
+                        .HasForeignKey("AccountNo");
                 });
 
             modelBuilder.Entity("BankCustomerApi.Models.User", b =>
@@ -374,7 +351,7 @@ namespace BankCustomerApi.Migrations
 
             modelBuilder.Entity("BankCustomerApi.Models.Account", b =>
                 {
-                    b.Navigation("Transactions");
+                    b.Navigation("Permissions");
                 });
 
             modelBuilder.Entity("BankCustomerApi.Models.Bank", b =>

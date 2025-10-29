@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace BankCustomerApi.Models
 {
     [Table("Account", Schema = "training")]
@@ -34,9 +33,9 @@ namespace BankCustomerApi.Models
 
         public required virtual User User { get; set; }
         public required virtual Bank Bank { get; set; }
-        public  required virtual Branch Branch { get; set; }
+        public required virtual Branch Branch { get; set; }
 
-        public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
-
+        // 👇 FIXED: singular name (Permission)
+        public virtual ICollection<Permission> Permissions { get; set; } = new List<Permission>();
     }
 }

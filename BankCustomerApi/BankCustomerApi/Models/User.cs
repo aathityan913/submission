@@ -10,14 +10,18 @@ namespace BankCustomerApi.Models
         [Key]
         public int UserID { get; set; }
 
+
+
         [Required, StringLength(100)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [StringLength(15)]
         public required string Contact { get; set; }
 
         [Required, StringLength(100)]
         public required string Email { get; set; }
+
+
 
         [Required, StringLength(255)]
         public required string PasswordHash { get; set; }
@@ -29,6 +33,6 @@ namespace BankCustomerApi.Models
         public required string Status { get; set; }
 
         public required virtual Role Role { get; set; }
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<Account>? Accounts { get; set; }
     }
 }

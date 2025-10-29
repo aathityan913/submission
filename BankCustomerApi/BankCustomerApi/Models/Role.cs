@@ -14,6 +14,7 @@ namespace BankCustomerApi.Models
         [StringLength(255)]
         public required string Description { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; } = new List<User>();
+
     }
 }

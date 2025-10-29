@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Security;
 
 namespace BankCustomerApi.Models
 {
@@ -8,47 +7,62 @@ namespace BankCustomerApi.Models
         public TrainingContext(DbContextOptions<TrainingContext> options)
             : base(options) { }
 
+        // ======================
+        // DbSet Declarations
+        // ======================
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
-       
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Bank> Banks { get; set; }
         public DbSet<Branch> Branches { get; set; }
-        public DbSet<Transaction> Transactions { get; set; } // ✅ New table
+        public DbSet<Permission> Permissions { get; set; } // ✅ Correct entity name
 
+        // ======================
+        // Model Configuration
+        // ======================
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("training");
-  
 
-            // Account ↔ Transaction
-            modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.Account)
-                .WithMany(a => a.Transactions)
-                .HasForeignKey(t => t.AccountID);
-
-            modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.User)
-                .WithMany()
-                .HasForeignKey(t => t.PerformedBy)
+            // ============================================================
+            // Account Relationships
+            // ============================================================
+            modelBuilder.Entity<Account>()
+                .HasOne(a => a.Bank)
+                .WithMany(b => b.Accounts)
+                .HasForeignKey(a => a.BankID)
                 .OnDelete(DeleteBehavior.Restrict);
-         modelBuilder.Entity<Account>()
-        .HasOne(a => a.Bank)
-        .WithMany(b => b.Accounts)
-        .HasForeignKey(a => a.BankID)
-        .OnDelete(DeleteBehavior.Restrict); // 👈 Prevent multiple cascade paths
 
             modelBuilder.Entity<Account>()
                 .HasOne(a => a.Branch)
                 .WithMany(b => b.Accounts)
                 .HasForeignKey(a => a.BranchID)
-                .OnDelete(DeleteBehavior.Restrict); // 👈 Or use Restrict here
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Account>()
                 .HasOne(a => a.User)
                 .WithMany(u => u.Accounts)
                 .HasForeignKey(a => a.UserID)
-                .OnDelete(DeleteBehavior.Cascade); // keep cascade here if needed
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ============================================================
+            // Permission (Optional: if related to Role or User)
+            // ============================================================
+            modelBuilder.Entity<Permission>()
+                .Property(p => p.PermissionName)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<Permission>()
+                .Property(p => p.Description)
+                .HasMaxLength(150);
+
+            // Optional: If Permission links to Role (future RBAC feature)
+            // modelBuilder.Entity<Role>()
+            //     .HasMany(r => r.Permissions)
+            //     .WithOne()
+            //     .HasForeignKey("RoleID")
+            //     .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
         }
