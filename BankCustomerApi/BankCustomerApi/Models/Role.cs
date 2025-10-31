@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace BankCustomerApi.Models
 {
     [Table("Role", Schema = "training")]
@@ -14,7 +16,7 @@ namespace BankCustomerApi.Models
         [StringLength(255)]
         public required string Description { get; set; }
 
-        public virtual ICollection<User> Users { get; set; } = new List<User>();
-
+        // 👇 Many-to-many link via UserRole
+        public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

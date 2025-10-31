@@ -15,7 +15,7 @@ namespace BankCustomerApi.Controllers
             _context = context;
         }
 
-        // ✅ GET: api/Account
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Account>>> GetAccounts()
         {
@@ -29,7 +29,7 @@ namespace BankCustomerApi.Controllers
             return Ok(accounts);
         }
 
-        // ✅ GET: api/Account/5
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Account>> GetAccount(int id)
         {
@@ -48,11 +48,11 @@ namespace BankCustomerApi.Controllers
             return Ok(account);
         }
 
-        // ✅ POST: api/Account
+      
         [HttpPost]
         public async Task<ActionResult<Account>> PostAccount(Account account)
         {
-            // Validation: check if related entities exist
+            
             if (!_context.Users.Any(u => u.UserID == account.UserID))
                 return BadRequest($"User with ID {account.UserID} not found.");
 
@@ -68,7 +68,7 @@ namespace BankCustomerApi.Controllers
             return CreatedAtAction(nameof(GetAccount), new { id = account.AccountNo }, account);
         }
 
-        // ✅ PUT: api/Account/5
+       
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAccount(int id, Account account)
         {
@@ -98,7 +98,7 @@ namespace BankCustomerApi.Controllers
             return NoContent();
         }
 
-        // ✅ DELETE: api/Account/5
+       
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAccount(int id)
         {

@@ -16,7 +16,7 @@ namespace BankCustomerApi.Controllers
             _context = context;
         }
 
-        // ✅ GET: api/Branch
+        
         [HttpGet]
         [Authorize(Roles = "Admin,Employee,Customer")]
         public async Task<ActionResult<IEnumerable<Branch>>> GetBranches()
@@ -29,7 +29,7 @@ namespace BankCustomerApi.Controllers
             return Ok(branches);
         }
 
-        // ✅ GET: api/Branch/{id}
+      
         [HttpGet("{id}")]
         [Authorize(Roles = "Admin,Employee,Customer")]
         public async Task<ActionResult<Branch>> GetBranch(int id)
@@ -47,7 +47,7 @@ namespace BankCustomerApi.Controllers
             return Ok(branch);
         }
 
-        // ✅ POST: api/Branch
+        
         [HttpPost]
         [Authorize(Roles = "Admin,Employee")]
         public async Task<ActionResult<Branch>> PostBranch(Branch branch)
@@ -62,7 +62,6 @@ namespace BankCustomerApi.Controllers
             return CreatedAtAction(nameof(GetBranch), new { id = branch.BranchID }, branch);
         }
 
-        // ✅ PUT: api/Branch/{id}
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> PutBranch(int id, Branch branch)
@@ -87,9 +86,9 @@ namespace BankCustomerApi.Controllers
             return Ok(new { message = $"Branch {id} updated successfully." });
         }
 
-        // ✅ DELETE: api/Branch/{id}
+        
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]  // 👈 Add your roles here
+        [Authorize(Roles = "Admin")]  
         public async Task<IActionResult> DeleteBranch(int id)
         {
             var branch = await _context.Branches.FindAsync(id);

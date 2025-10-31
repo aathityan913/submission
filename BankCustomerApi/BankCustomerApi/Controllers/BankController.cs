@@ -15,7 +15,7 @@ namespace BankCustomerApi.Controllers
             _context = context;
         }
 
-        // ✅ GET: api/Bank
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bank>>> GetBanks()
         {
@@ -27,7 +27,7 @@ namespace BankCustomerApi.Controllers
             return Ok(banks);
         }
 
-        // ✅ GET: api/Bank/5
+       
         [HttpGet("{id}")]
         public async Task<ActionResult<Bank>> GetBank(int id)
         {
@@ -44,7 +44,7 @@ namespace BankCustomerApi.Controllers
             return Ok(bank);
         }
 
-        // ✅ POST: api/Bank
+       
         [HttpPost]
         public async Task<ActionResult<Bank>> PostBank(Bank bank)
         {
@@ -54,7 +54,7 @@ namespace BankCustomerApi.Controllers
             return CreatedAtAction(nameof(GetBank), new { id = bank.BankID }, bank);
         }
 
-        // ✅ PUT: api/Bank/5
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBank(int id, Bank bank)
         {
@@ -84,7 +84,7 @@ namespace BankCustomerApi.Controllers
             return NoContent();
         }
 
-        // ✅ DELETE: api/Bank/5
+      
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBank(int id)
         {

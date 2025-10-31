@@ -4,6 +4,7 @@ using BankCustomerApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankCustomerApi.Migrations
 {
     [DbContext(typeof(TrainingContext))]
-    partial class TrainingContextModelSnapshot : ModelSnapshot
+    [Migration("20251029095420_AddUserRoleTable")]
+    partial class AddUserRoleTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -324,6 +327,9 @@ namespace BankCustomerApi.Migrations
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UserID1")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -334,6 +340,8 @@ namespace BankCustomerApi.Migrations
                     b.HasIndex("RoleID");
 
                     b.HasIndex("UserID");
+
+                    b.HasIndex("UserID1");
 
                     b.ToTable("UserRole", "training");
                 });
@@ -386,7 +394,7 @@ namespace BankCustomerApi.Migrations
             modelBuilder.Entity("BankCustomerApi.Models.User", b =>
                 {
                     b.HasOne("BankCustomerApi.Models.Role", "Role")
-                        .WithMany()
+                        .WithMany("Users")
                         .HasForeignKey("RoleID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -397,16 +405,20 @@ namespace BankCustomerApi.Migrations
             modelBuilder.Entity("BankCustomerApi.Models.UserRole", b =>
                 {
                     b.HasOne("BankCustomerApi.Models.Role", "Role")
-                        .WithMany("UserRoles")
+                        .WithMany()
                         .HasForeignKey("RoleID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("BankCustomerApi.Models.User", "User")
-                        .WithMany("UserRoles")
+                        .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("BankCustomerApi.Models.User", null)
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserID1");
 
                     b.Navigation("Role");
 
@@ -432,7 +444,7 @@ namespace BankCustomerApi.Migrations
 
             modelBuilder.Entity("BankCustomerApi.Models.Role", b =>
                 {
-                    b.Navigation("UserRoles");
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("BankCustomerApi.Models.User", b =>

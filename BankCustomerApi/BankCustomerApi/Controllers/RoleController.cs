@@ -15,14 +15,13 @@ namespace BankCustomerApi.Controllers
             _context = context;
         }
 
-        // ✅ GET: api/Role
+      
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Role>>> GetRoles()
         {
             return await _context.Roles.ToListAsync();
         }
 
-        // ✅ GET: api/Role/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Role>> GetRole(int id)
         {
@@ -36,7 +35,6 @@ namespace BankCustomerApi.Controllers
             return role;
         }
 
-        // ✅ POST: api/Role
         [HttpPost]
         public async Task<ActionResult<Role>> PostRole(Role role)
         {
@@ -46,7 +44,7 @@ namespace BankCustomerApi.Controllers
             return CreatedAtAction(nameof(GetRole), new { id = role.RoleID }, role);
         }
 
-        // ✅ PUT: api/Role/5
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRole(int id, Role role)
         {
@@ -76,7 +74,7 @@ namespace BankCustomerApi.Controllers
             return NoContent();
         }
 
-        // ✅ DELETE: api/Role/5
+       
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRole(int id)
         {

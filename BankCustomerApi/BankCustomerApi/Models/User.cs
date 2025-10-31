@@ -34,5 +34,7 @@ namespace BankCustomerApi.Models
 
         public required virtual Role Role { get; set; }
         public virtual ICollection<Account>? Accounts { get; set; }
+
+        public virtual ICollection<UserRole>? UserRoles { get; set; }
     }
 }

@@ -15,18 +15,14 @@ namespace BankCustomerApi.Controllers
             _context = context;
         }
 
-        // =============================================================
-        // GET: api/Permission
-        // =============================================================
+       
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Permission>>> GetPermissions()
         {
             return await _context.Permissions.ToListAsync();
         }
 
-        // =============================================================
-        // GET: api/Permission/5
-        // =============================================================
+       
         [HttpGet("{id}")]
         public async Task<ActionResult<Permission>> GetPermission(int id)
         {
@@ -39,6 +35,4 @@ namespace BankCustomerApi.Controllers
         }
     }
 }
-        // =============================================================
-        // POST: api/Permission
-        // ==============
+        

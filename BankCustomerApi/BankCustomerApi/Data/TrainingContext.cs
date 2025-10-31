@@ -7,26 +7,18 @@ namespace BankCustomerApi.Models
         public TrainingContext(DbContextOptions<TrainingContext> options)
             : base(options) { }
 
-        // ======================
-        // DbSet Declarations
-        // ======================
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Bank> Banks { get; set; }
         public DbSet<Branch> Branches { get; set; }
-        public DbSet<Permission> Permissions { get; set; } // ✅ Correct entity name
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
 
-        // ======================
-        // Model Configuration
-        // ======================
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("training");
 
-            // ============================================================
-            // Account Relationships
-            // ============================================================
             modelBuilder.Entity<Account>()
                 .HasOne(a => a.Bank)
                 .WithMany(b => b.Accounts)
@@ -45,9 +37,21 @@ namespace BankCustomerApi.Models
                 .HasForeignKey(a => a.UserID)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // ============================================================
-            // Permission (Optional: if related to Role or User)
-            // ============================================================
+            modelBuilder.Entity<UserRole>()
+                .HasKey(ur => ur.UserRoleID);
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.User)
+                .WithMany(u => u.UserRoles)
+                .HasForeignKey(ur => ur.UserID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.Role)
+                .WithMany(r => r.UserRoles)
+                .HasForeignKey(ur => ur.RoleID)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<Permission>()
                 .Property(p => p.PermissionName)
                 .IsRequired()
@@ -56,13 +60,6 @@ namespace BankCustomerApi.Models
             modelBuilder.Entity<Permission>()
                 .Property(p => p.Description)
                 .HasMaxLength(150);
-
-            // Optional: If Permission links to Role (future RBAC feature)
-            // modelBuilder.Entity<Role>()
-            //     .HasMany(r => r.Permissions)
-            //     .WithOne()
-            //     .HasForeignKey("RoleID")
-            //     .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
         }
