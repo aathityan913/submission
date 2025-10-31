@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankCustomerApi.Models
@@ -11,12 +10,11 @@ namespace BankCustomerApi.Models
         public int RoleID { get; set; }
 
         [Required, StringLength(50)]
-        public required string RoleName { get; set; }
+        public string RoleName { get; set; } = string.Empty;
 
         [StringLength(255)]
-        public required string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
-        // 👇 Many-to-many link via UserRole
         public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

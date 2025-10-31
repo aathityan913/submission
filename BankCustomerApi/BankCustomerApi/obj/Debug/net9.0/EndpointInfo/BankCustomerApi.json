@@ -2,7 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "BankCustomerApi",
-    "version": "1.0"
+    "version": "v1"
   },
   "paths": {
     "/api/Account": {
@@ -1156,7 +1156,6 @@
       },
       "Role": {
         "required": [
-          "description",
           "roleName"
         ],
         "type": "object",
@@ -1205,12 +1204,9 @@
       },
       "User": {
         "required": [
-          "contact",
           "email",
           "name",
-          "passwordHash",
-          "role",
-          "status"
+          "passwordHash"
         ],
         "type": "object",
         "properties": {
@@ -1256,24 +1252,10 @@
             "minLength": 0,
             "type": "string"
           },
-          "roleID": {
-            "type": "integer",
-            "format": "int32"
-          },
           "status": {
             "maxLength": 20,
             "minLength": 0,
             "type": "string",
-            "nullable": true
-          },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "accounts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Account"
-            },
             "nullable": true
           },
           "userRoles": {
@@ -1287,13 +1269,15 @@
         "additionalProperties": false
       },
       "UserCreateDto": {
+        "required": [
+          "email",
+          "name",
+          "password",
+          "roleIds"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "contact": {
             "type": "string",
             "nullable": true
           },
@@ -1305,41 +1289,20 @@
             "type": "string",
             "nullable": true
           },
-          "roleName": {
-            "type": "string",
+          "roleIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
       "UserRole": {
-        "required": [
-          "roleName",
-          "userName"
-        ],
         "type": "object",
         "properties": {
-          "createdDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "modifiedBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "userRoleID": {
-            "type": "integer",
-            "format": "int32"
-          },
           "userID": {
             "type": "integer",
             "format": "int32"
@@ -1347,16 +1310,6 @@
           "roleID": {
             "type": "integer",
             "format": "int32"
-          },
-          "userName": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string"
-          },
-          "roleName": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string"
           },
           "user": {
             "$ref": "#/components/schemas/User"
@@ -1367,6 +1320,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter JWT token like: Bearer eyJhbGciOi...",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

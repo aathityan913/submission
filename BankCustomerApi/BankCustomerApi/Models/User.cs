@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BankCustomerApi.Models;
 
 namespace BankCustomerApi.Models
 {
@@ -10,31 +9,21 @@ namespace BankCustomerApi.Models
         [Key]
         public int UserID { get; set; }
 
-
-
         [Required, StringLength(100)]
-        public string? Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [StringLength(15)]
-        public required string Contact { get; set; }
+        public string Contact { get; set; } = string.Empty;
 
         [Required, StringLength(100)]
-        public required string Email { get; set; }
-
-
+        public string Email { get; set; } = string.Empty;
 
         [Required, StringLength(255)]
-        public required string PasswordHash { get; set; }
-
-        [ForeignKey("Role")]
-        public int RoleID { get; set; }
+        public string PasswordHash { get; set; } = string.Empty;
 
         [StringLength(20)]
-        public required string Status { get; set; }
+        public string Status { get; set; } = "Active";
 
-        public required virtual Role Role { get; set; }
-        public virtual ICollection<Account>? Accounts { get; set; }
-
-        public virtual ICollection<UserRole>? UserRoles { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

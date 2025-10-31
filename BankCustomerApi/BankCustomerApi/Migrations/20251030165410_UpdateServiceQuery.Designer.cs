@@ -4,6 +4,7 @@ using BankCustomerApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankCustomerApi.Migrations
 {
     [DbContext(typeof(TrainingContext))]
-    partial class TrainingContextModelSnapshot : ModelSnapshot
+    [Migration("20251030165410_UpdateServiceQuery")]
+    partial class UpdateServiceQuery
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,7 +241,52 @@ namespace BankCustomerApi.Migrations
                     b.ToTable("Role", "training");
                 });
 
-            modelBuilder.Entity("BankCustomerApi.Models.User", b =>
+            modelBuilder.Entity("BankCustomerApi.Models.UserRole", b =>
+                {
+                    b.Property<int>("UserRoleID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserRoleID"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RoleID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("UserRoleID");
+
+                    b.HasIndex("RoleID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("UserRole", "training");
+                });
+
+            modelBuilder.Entity("User", b =>
                 {
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
@@ -288,21 +336,6 @@ namespace BankCustomerApi.Migrations
                     b.ToTable("User", "training");
                 });
 
-            modelBuilder.Entity("BankCustomerApi.Models.UserRole", b =>
-                {
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoleID")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserID", "RoleID");
-
-                    b.HasIndex("RoleID");
-
-                    b.ToTable("UserRole", "training");
-                });
-
             modelBuilder.Entity("BankCustomerApi.Models.Account", b =>
                 {
                     b.HasOne("BankCustomerApi.Models.Bank", "Bank")
@@ -317,8 +350,8 @@ namespace BankCustomerApi.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("BankCustomerApi.Models.User", "User")
-                        .WithMany()
+                    b.HasOne("User", "User")
+                        .WithMany("Accounts")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -356,7 +389,7 @@ namespace BankCustomerApi.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("BankCustomerApi.Models.User", "User")
+                    b.HasOne("User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -389,8 +422,10 @@ namespace BankCustomerApi.Migrations
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("BankCustomerApi.Models.User", b =>
+            modelBuilder.Entity("User", b =>
                 {
+                    b.Navigation("Accounts");
+
                     b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618

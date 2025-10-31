@@ -2,6 +2,7 @@
 using BankCustomerApi.Models;
 using BankCustomerApi.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace BankCustomerApi.Controllers
 {
@@ -24,20 +25,28 @@ namespace BankCustomerApi.Controllers
             if (login == null || string.IsNullOrWhiteSpace(login.Email) || string.IsNullOrWhiteSpace(login.Password))
                 return BadRequest(new { Message = "Email and Password are required." });
 
-            // ✅ Fetch user + role
+            // ✅ Fetch user with roles
             var user = _context.Users
-                .Include(u => u.Role)
-                .FirstOrDefault(u => u.Email == login.Email && u.Status == "Active");
+    .Include(u => u.UserRoles)
+        .ThenInclude(ur => ur.Role)
+    .FirstOrDefault(u => u.Email == login.Email && u.Status == "Active");
+
 
             if (user == null)
                 return Unauthorized(new { Message = "User not found or inactive." });
 
-            // ✅ Verify password (plain text for now)
+            // ✅ Password check (plain for now)
             if (user.PasswordHash != login.Password)
                 return Unauthorized(new { Message = "Invalid password." });
 
-            // ✅ Generate JWT token
-            var token = _jwtService.GenerateToken(user.Name ?? "Unknown", user.Role.RoleName);
+            // ✅ Extract roles list
+            var roles = user.UserRoles.Select(ur => ur.Role.RoleName).ToList();
+
+            // ✅ Convert multiple roles to comma string
+            var roleString = string.Join(",", roles);
+
+            // ✅ Generate token (pass comma-separated roles string)
+            var token = _jwtService.GenerateToken(user, roles);
 
             return Ok(new
             {
@@ -48,13 +57,12 @@ namespace BankCustomerApi.Controllers
                     user.UserID,
                     user.Name,
                     user.Email,
-                    Role = user.Role.RoleName
+                    Roles = roles
                 }
             });
         }
     }
 
-    // DTO for login request
     public class LoginRequest
     {
         public string? Email { get; set; }

@@ -31,14 +31,9 @@ namespace BankCustomerApi.Models
                 .HasForeignKey(a => a.BranchID)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Account>()
-                .HasOne(a => a.User)
-                .WithMany(u => u.Accounts)
-                .HasForeignKey(a => a.UserID)
-                .OnDelete(DeleteBehavior.Cascade);
-
+            // ✅ Corrected UserRole many-to-many mapping
             modelBuilder.Entity<UserRole>()
-                .HasKey(ur => ur.UserRoleID);
+                .HasKey(ur => new { ur.UserID, ur.RoleID });
 
             modelBuilder.Entity<UserRole>()
                 .HasOne(ur => ur.User)
@@ -63,5 +58,6 @@ namespace BankCustomerApi.Models
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }
