@@ -1,0 +1,27 @@
+/* PARENT */
+.courses {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* CHILD columns */
+.course {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* heading (child of course) */
+.course h3 {
+    margin: 0;
+}
+
+/* description box (child of course) */
+.box {
+    border: solid;  /* default border width, no units */
+}
+
+/* text inside box */
+.box p {
+    margin: 0;
+}

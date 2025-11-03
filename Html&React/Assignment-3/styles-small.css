@@ -1,0 +1,39 @@
+
+:root {
+    font-size: 1rem;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.container {
+    width: 90vw;
+    margin-inline: auto;
+}
+
+.container__title {
+    font-size: 1.6rem;
+}
+
+.container__subtitle {
+    font-size: 1rem;
+    margin-block: 1rem;
+}
+
+.container__colors {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.color-list > div {
+    padding: 1.5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
