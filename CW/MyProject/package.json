@@ -1,0 +1,18 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "type": "module",
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5"
+  },
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build":"babel src --out-dir dist"
+    },
+    "author": "Aathityan Mariraj",
+    "license": "ISC"
+  }
+  
+
