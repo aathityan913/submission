@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background-color: #fdfdfd;
+}
+
+header, section, div {
+  padding: 80px 0;
+}
+
+/* HEADINGS */
+h1 { font-size: 40px; line-height: 54px; color: #fff; }
+h2 { font-size: 32px; margin-bottom: 20px; }
+
+/* TEXT */
+p {
+  width: 60%;
+  margin: 10px auto;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 300;
+  color: #333;
+}
+
+/* BUTTON */
+a, button {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  background-color: #e81c50;
+  color: white;
+  text-decoration: none;
+  padding: 12px 0;
+  border-radius: 30px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+a:hover, button:hover {
+  background-color: #ff458a;
+  transform: scale(1.05);
+}
+
+/* HEADER BACKGROUND */
+header {
+  background-image: url(https://unsplash.it/1990/700?image=120);
+  background-size: cover;
+  background-position: center;
+}
+
+.og { color: yellow; font-weight: 700; }
+
+/* MEDIA SECTION */
+iframe, audio {
+  margin: 15px auto;
+  border-radius: 10px;
+}
+
+/* CONTACT FORM */
+input, textarea {
+  width: 55%;
+  padding: 12px;
+  margin: 8px auto;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #e81c50;
+}
+
+/* GALLERY */
+#Gallery table { margin: 0 auto; }
+#Gallery td { padding: 10px; }
+
+/* NEWSLETTER */
+#newsletter input {
+  width: 40%;
+}
+
+/* SKILLS SYLES */
+#skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px 0;
+}
+/* SKILLS SECTION */
+#about + #skills {           /* Adjacent sibling combinator */
+  /* display: block; commented to make the cards display in a single line*/
+  text-align: center;
+}
+
+/* Skill Cards */
+#skills .skill-box {
+  background: #b9f7b4;
+  width: 450px;                  /* reduced width */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: left;
+  transition: 0.3s;
+}
+
+/* First skill-box (child selector) */
+#skills > .skill-box:first-child {
+  border-left: 6px solid green;
+  width:40rem;
+}
+
+/* Second skill-box (general sibling combinator) */
+#skills .skill-box + .skill-box {
+  border-left: 6px solid darkgreen;
+  width:41rem;
+}
+
+/* Style skill titles */
+#skills h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align:center;
+}
+
+/* Make skills inline (horizontal row) */
+#skills ul {
+  padding: 0;
+  margin: 0;
+  display: flex;               /* convert into row */
+  flex-wrap: wrap;             /* wrap if needed */
+  justify-content: space-between;
+  gap:0.6rem;
+  gap: 10px;                   /* space between items */
+}
+
+#skills ul li {
+  list-style: none;
+  font-size: 14px;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  flex: 1 1 auto;
+  border: 1px solid #ddd;
+}
+
+/* to make A as big letter in about me */
+/* we use psuedo class */
+#about h2::first-letter{ 
+  color:red;
+  font-size: 55px;
+  font-weight: 700;
+}
+/* FOOTER */
+#footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  gap:0.8rem;
+  text-align: center;
+}
+
+footer strong {
+  color: #ff0077;
+}
+#footer p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.github-logo {
+  width: 2.5rem;   /* responsive size, not px */
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.github-logo:hover {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(98%) saturate(5132%) hue-rotate(355deg) brightness(94%) contrast(101%);
+}
+
+

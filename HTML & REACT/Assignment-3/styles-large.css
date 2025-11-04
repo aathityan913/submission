@@ -1,0 +1,54 @@
+
+:root {
+    font-size: 1rem;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #ececec, #fafafa);
+}
+
+.container {
+    width: 80vw;
+    max-width: 70rem;
+    text-align: center;
+}
+
+.container__title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.container__subtitle {
+    font-size: 1.2rem;
+    margin-block: 1rem;
+}
+
+.container__colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.color-list > div {
+    padding: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #ccc;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.color-list > div:hover {
+    transform: scale(1.1);
+}
