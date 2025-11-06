@@ -155,7 +155,7 @@ input:focus, textarea:focus {
 }
 
 /* to make A as big letter in about me */
-/* we use sub class */
+/* we use psuedo class */
 #about h2::first-letter{ 
   color:red;
   font-size: 55px;
