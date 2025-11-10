@@ -1,0 +1,72 @@
+/* Full-screen overlay background */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* 🔥 Adds semi-transparent dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Popup box */
+  .popup-box {
+    background-color: #111; /* Deep gray instead of pure black */
+    border-radius: 15px;
+    padding: 30px 40px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    animation: popIn 0.3s ease;
+    color: #fff; /* Default text color white */
+  }
+  
+  /* Popup title */
+  .popup-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff; /* make title visible */
+  }
+  
+  /* Popup content text */
+  .popup-content {
+    font-size: 16px;
+    color: #ddd; /* lighter gray for contrast */
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  /* Close button */
+  .popup-close {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .popup-close:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Animation for popup box */
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
