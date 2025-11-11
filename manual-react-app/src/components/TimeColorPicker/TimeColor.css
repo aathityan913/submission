@@ -1,0 +1,51 @@
+/* General layout */
+.container {
+    background-color: #f7f8fa;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    gap: 10px; /* reduces vertical spacing */
+  }
+  
+  /* Clock box */
+  .clock-card {
+    padding: 10px 30px; /* less padding = less height */
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease;
+  }
+  
+  /* Dropdown section */
+  .dropdown-section {
+    margin-top: 10px; /* reduced from 25px */
+    text-align: center;
+  }
+  
+  /* Label */
+  .dropdown-label {
+    font-size: 0.95rem;
+    margin-right: 8px;
+  }
+  
+  /* Dropdown select */
+  .dropdown-select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-select:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  

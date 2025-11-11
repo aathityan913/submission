@@ -1,0 +1,23 @@
+.display-container {
+    max-width: 400px;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  .data-card p {
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin: 5px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .no-data {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+  }
+  

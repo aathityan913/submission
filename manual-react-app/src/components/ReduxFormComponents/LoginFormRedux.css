@@ -1,0 +1,89 @@
+.login-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .login-form .form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  
+  input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .btn-submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-reset {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .social-login {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+  }
+  
+  .btn-facebook {
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+  }
+  
+  .btn-instagram {
+    background-color: #e1306c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 500px) {
+    .login-container {
+      width: 90%;
+      padding: 1rem;
+    }
+    .button-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .social-login {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
