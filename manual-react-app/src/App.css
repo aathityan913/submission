@@ -1,139 +1,142 @@
-App.css
-
-/* Basic layout styling */
-body {
-  background-color: #f8f9fb;
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+/* General wrapper */
+.app-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
 }
 
-/* Responsive grid container */
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 24px;
-  padding: 30px;
-  justify-items: center;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
-
-/* Each grid item styled like a card */
-.grid-item {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  width: 100%;
-  max-width: 500px;
-  transition: all 0.2s ease-in-out;
-}
-
-.grid-item:hover {
-  transform: translateY(-5px);
-}
-
-/* Ensure consistent layout inside ReduxContainer */
-.redux-container {
+/* Navbar */
+.navbar {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 24px;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 0 0 10px 10px;
 }
 
-.redux-container .form-section,
-.redux-container .display-section {
-  flex: 1;
-  min-width: 280px;
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-/* Make smaller screens look neat */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-links a.active-link {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+/* Hamburger menu for mobile */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+/* Responsive Navbar */
 @media (max-width: 768px) {
-  .app-grid {
-    grid-template-columns: 1fr;
-    padding: 15px;
-  }
-
-  .grid-item {
-    max-width: 100%;
-  }
-
-  .redux-container {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
   }
 }
 
-/* 🎯 Popup Section Styling */
-.popup-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Page content */
+.app-content {
+  padding: 40px;
+}
+
+/* Home Page */
+.home-page {
   text-align: center;
-  background: linear-gradient(135deg, #f3f6ff 0%, #e8f0ff 100%);
-  border-radius: 16px;
-  padding: 30px 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  padding: 80px 20px;
 }
 
-.popup-section:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-}
-
-.popup-section h1 {
-  color: #1a237e;
-  font-size: 1.6rem;
+.home-page h1 {
+  font-size: 3rem;
   margin-bottom: 20px;
-  letter-spacing: 0.5px;
-  font-weight: 600;
+  color: #111827;
 }
 
-/* 💡 Button Styling */
-.popup-button {
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  color: white;
+.home-page p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #6b7280;
+}
+
+.btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
   border: none;
-  border-radius: 10px;
-  padding: 12px 24px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  text-decoration: none;
+  color: #fff;
 }
 
-.popup-button:hover {
-  background: linear-gradient(135deg, #0056b3, #00408a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 86, 179, 0.35);
+.btn-primary {
+  background-color: #3b82f6;
 }
 
-.popup-button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 6px rgba(0, 86, 179, 0.3);
+.btn-primary:hover {
+  background-color: #2563eb;
 }
-
-/* 👩‍👧 Parent Component Area */
-.popup-section > *:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-/* 🧩 Optional: Add a container look for Parent if it feels out of place */
-.popup-section .parent-container {
-  margin: 15px 0;
-  padding: 10px;
-  border-radius: 10px;
-  background: #ffffffb0;
-  backdrop-filter: blur(4px);
-  width: 100%;
-  max-width: 500px;
-}
-

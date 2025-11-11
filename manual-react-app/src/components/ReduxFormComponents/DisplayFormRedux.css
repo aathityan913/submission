@@ -1,23 +1,34 @@
 .display-container {
-    max-width: 400px;
-    margin: 1.5rem auto;
-    padding: 1rem;
-    background: #f8f9fa;
-    border-radius: 10px;
+    background-color: #f5f7fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: left;
+    font-family: "Courier New", monospace;
   }
   
-  .data-card p {
-    background: #fff;
-    padding: 6px 10px;
-    border-radius: 6px;
-    margin: 5px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-  
-  .no-data {
+  .display-container h3 {
     text-align: center;
-    color: gray;
-    font-style: italic;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .json-display {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .json-display pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
   

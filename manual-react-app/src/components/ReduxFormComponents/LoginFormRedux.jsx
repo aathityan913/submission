@@ -1,26 +1,47 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { submitForm, resetForm } from "../../Redux/formSlice";
-import useFormFields from "../../hooks/useFormFields";
 import "./LoginFormRedux.css";
+
+// Reducer function to manage form state locally
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case "UPDATE_FIELD":
+      return { ...state, [action.field]: action.value };
+
+    case "RESET_FIELDS":
+      return { username: "", password: "", email: "" };
+
+    default:
+      return state;
+  }
+};
 
 export default function LoginForm() {
   const dispatch = useDispatch();
 
-  // dynamic input fields
-  const [fields, handleChange, resetFields] = useFormFields({
+  // Initialize reducer with form fields
+  const [fields, localDispatch] = useReducer(formReducer, {
     username: "",
     password: "",
     email: "",
   });
 
+  // Handle input change using reducer
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    localDispatch({ type: "UPDATE_FIELD", field: name, value });
+  };
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(submitForm(fields));
   };
 
+  // Reset both local and global (Redux) form state
   const handleReset = () => {
-    resetFields();
+    localDispatch({ type: "RESET_FIELDS" });
     dispatch(resetForm());
   };
 
@@ -36,7 +57,7 @@ export default function LoginForm() {
               name={key}
               id={key}
               value={fields[key]}
-              onChange={handleChange}
+              onChange={handleInput}
               placeholder={`Enter ${key}`}
               required
             />
