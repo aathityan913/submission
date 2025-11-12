@@ -17,3 +17,8 @@ FROM [training].[User] AS u
 INNER JOIN [training].[Role] AS r 
     ON u.RoleID = r.RoleID;
 
+SELECT * FROM training.[User];
+
+SELECT Email, PasswordHash, Status
+FROM  training.[User]
+WHERE Email = 'admin@bank.com';
