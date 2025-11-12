@@ -3,11 +3,15 @@ import { Routes, Route, Link, useLocation } from "react-router-dom";
 import "./App.css";
 import MainDashboard from "./MainDashBoard";
 import About from "./components/About";
-
+import NotFound from "./components/NotFound";
+import ReduxContainer from "./Redux/ReduxContainer";
+import FetchHtml from './components/API_CALLING/FetchExample';
+import FetchApi from './components/API_CALLING/FetchApiComponent';
+import MainLoginComponent from './MainLoginComponent';
+import LandingPage from "./components/LandingPage";
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-
+  const location = useLocation(); // ✅ FIXED: get the location object
   return (
     <div className="app-wrapper">
       {/* Top Navbar */}
@@ -50,8 +54,9 @@ const App = () => {
       {/* Page Content */}
       <div className="app-content">
         <Routes>
+        <Route  path="/" element={<LandingPage/>}/>
           <Route
-            path="/"
+            path="/homepage"
             element={
               <div className="home-page">
                 <h1>Welcome to OG App</h1>
@@ -62,8 +67,13 @@ const App = () => {
               </div>
             }
           />
+          <Route  path="/mainlogin" element={<MainLoginComponent />}/>
           <Route path="/dashboard" element={<MainDashboard />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<ReduxContainer/>} />
+          <Route path='*' element={<NotFound/>}/>
+          <Route path="/fetch" element={<FetchHtml/>}/>
+          <Route path="/api" element={<FetchApi/>}/>
         </Routes>
       </div>
     </div>

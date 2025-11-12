@@ -1,0 +1,62 @@
+/* Full page wrapper */
+.landing-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Content box */
+  .landing-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 60px 40px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .landing-content:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Heading */
+  .landing-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Paragraph */
+  .landing-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  
+  /* Button */
+  .btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #ff6b6b;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff4757;
+    transform: scale(1.05);
+  }
+  
