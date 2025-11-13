@@ -17,7 +17,7 @@ const App = () => {
       {/* Top Navbar */}
       <nav className="navbar">
         <div className="navbar-left">
-          <div className="navbar-brand">REACT TRAINING</div>
+          <div className="navbar-brand">OJJAS GAMBHEERA</div>
           <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
             <Link
               className={location.pathname === "/" ? "active-link" : ""}
