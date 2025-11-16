@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using BankCustomerApi.DTOs;
 using BankCustomerApi.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BankCustomerApi.Controllers
 {
@@ -117,6 +118,35 @@ namespace BankCustomerApi.Controllers
         private bool AccountExists(int id)
         {
             return _context.Accounts.Any(e => e.AccountNo == id);
+        }
+
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<AccountDto>>> GetAccountsByUser(int userId)
+        {
+            var accounts = await _context.Accounts
+                .Where(a => a.UserID == userId)
+                .Include(a => a.Bank)
+                .Include(a => a.Branch)
+                .Select(a => new AccountDto
+                {
+                    AccountNo = a.AccountNo,
+                    AccountType = a.AccountType,
+                    Currency = a.Currency,
+                    Balance = a.Balance,
+                    Status = a.Status,
+                    BankID = a.BankID,
+                    BankName = a.Bank.BankName,
+                    BranchID = a.BranchID,
+                    BranchName = a.Branch.BranchName
+                })
+                .ToListAsync();
+
+            if (!accounts.Any())
+            {
+                return NotFound($"No accounts found for user {userId}");
+            }
+
+            return Ok(accounts);
         }
     }
 }

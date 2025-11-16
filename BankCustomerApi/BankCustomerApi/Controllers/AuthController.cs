@@ -6,6 +6,8 @@ using System.Linq;
 
 namespace BankCustomerApi.Controllers
 {
+    
+
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -65,7 +67,7 @@ namespace BankCustomerApi.Controllers
 
     public class LoginRequest
     {
-        public string? Email { get; set; }
+        public string? Email { get; set; } 
         public string? Password { get; set; }
     }
 }

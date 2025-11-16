@@ -75,7 +75,27 @@ public async Task<IActionResult> CreateUser([FromBody] UserCreateDto request)
     });
 }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<UserListDto>>> GetAllUsers()
+        {
+            var users = await _context.Users
+                .Include(u => u.UserRoles)
+                    .ThenInclude(ur => ur.Role)
+                .Select(u => new UserListDto
+                {
+                    UserID = u.UserID,
+                    Name = u.Name,
+                    Contact = u.Contact,
+                    Email = u.Email,
+                    Status = u.Status,
+                    Roles = u.UserRoles.Select(r => r.Role.RoleName).ToList()
+                })
+                .ToListAsync();
 
-       
+            return Ok(users);
+        }
+
+
     }
 }

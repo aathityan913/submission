@@ -2,6 +2,7 @@
 using BankCustomerApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -73,6 +74,7 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
+   
 });
 
 // ✅ Add CORS policy for React frontend (http://localhost:3000)
@@ -106,6 +108,6 @@ app.UseAuthentication();  // ✅ Must come before authorization
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseCors("AllowAll");
+//app.UseCors("AllowAll");
 
 app.Run();
